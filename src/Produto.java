@@ -49,7 +49,8 @@ public class Produto implements Comparable<Produto> {
 
     @Override
     public String toString() {
-        return "Produto " + "Nome: " + nomeProd.toUpperCase() + " valor =" + valorProd;
+
+        return "Nome: " + nomeProd.toUpperCase() + " valor: R$" + valorProd;
     }
 
     @Override
