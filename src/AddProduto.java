@@ -7,10 +7,12 @@ import java.util.Scanner;
 
 public class AddProduto {
 
+    ListaProdutos listaProdutos = new ListaProdutos();
+    Produto produto = new Produto();
+
     public void AddProduto() throws ParseException {
         NumberFormat numberFormat = NumberFormat.getInstance(Locale.US);
-        ListaProdutos listaProdutos = new ListaProdutos();
-        Produto produto = new Produto();
+
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("________Cadastrando produto______");
@@ -34,19 +36,18 @@ public class AddProduto {
         if (disp == 1) {
             produto.setDisponivel(produto.isDisponivel(true));
             listaProdutos.listaProduto.add(new Produto(nome, descr, valor, produto.isDisponivel(true)));
-            for (int i = 0; i < listaProdutos.listaProduto.size(); i++) {
-                Collections.sort(listaProdutos.listaProduto);
-                System.out.println(listaProdutos.listaProduto.get(i));
-                System.out.println("_____________________________");
-            }
+            mostrarLista();
         } else {
             produto.setDisponivel(produto.isDisponivel(false));
             listaProdutos.listaProduto.add(new Produto(nome, descr, valor, produto.isDisponivel(false)));
-            for (int i = 0; i < listaProdutos.listaProduto.size(); i++) {
-                Collections.sort(listaProdutos.listaProduto);
-                System.out.println(listaProdutos.listaProduto.get(i));
-            }
+            mostrarLista();
             System.out.println("--------------------------------------------");
+        }
+    }
+
+    public void mostrarLista() {
+        for (int i = 0; i < listaProdutos.listaProduto.size(); i++) {
+            System.out.println(listaProdutos.listaProduto.get(i));
         }
     }
 }

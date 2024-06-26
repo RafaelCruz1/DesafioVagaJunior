@@ -3,7 +3,6 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) {
         AddProduto addProduto = new AddProduto();
-        ListaProdutos listaProdutos = new ListaProdutos();
 
         Scanner scanner = new Scanner(System.in);
 
@@ -25,28 +24,28 @@ public class Main {
                 if (resposta == 1) {
                     addProduto.AddProduto();
                 } else {
-                    if (listaProdutos.listaProduto.isEmpty()) {
-                        System.out.println("A lista esta vazia. ");
-                    }
-                    listaProdutos.mostrarLista();
+                    addProduto.mostrarLista();
                     System.out.println("----------------------------");
                 }
                 System.out.println("Deseja realizar outro comando? 1.Sim / 2.Nao");
-                resp = scanner.nextInt();
+                int respCerteza = scanner.nextInt();
                 scanner.nextLine();
                 System.out.println("--------------------------------------");
-                if (resp == 2) {
+                if (respCerteza == 2) {
                     System.out.println("Certeza? 1.Sim / 2.Nao");
                     int confirmar = scanner.nextInt();
                     if (confirmar == 1) {
                         System.out.println("Encerrando programa.");
                         scanner.close();
                         break;
+                    } else {
+                        respCerteza = 2;
+                        System.out.println("----------------------------------");
                     }
                 }
             }
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            e.printStackTrace();
         }
     }
 }
