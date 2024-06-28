@@ -47,6 +47,7 @@ public class AddProduto {
 
     public void mostrarLista() {
         for (int i = 0; i < listaProdutos.listaProduto.size(); i++) {
+            Collections.sort(listaProdutos.listaProduto);
             System.out.println(listaProdutos.listaProduto.get(i));
         }
     }
